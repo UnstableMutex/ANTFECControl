@@ -41,18 +41,23 @@ namespace ConsoleApplication1
         {
             //var rid = response.getMessageID();
             //Console.WriteLine(rid);
-
-            var m = response.messageContents;
-            string s = "";
-            //var ev = response.getChannelEventCode();
-            //Console.WriteLine(ev);
-            var d = response.timeReceived;
-            foreach (var item in m)
+            try
             {
-                s += item.ToString() + " ";
+                var m = response.messageContents;
+                string s = "";
 
+                var d = response.timeReceived;
+                var hr = response.messageContents[8].ToString();
+
+
+                Console.WriteLine(hr);
             }
-            Console.WriteLine(s);
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("errror");
+                //  throw;
+            }
+
         }
     }
 }
